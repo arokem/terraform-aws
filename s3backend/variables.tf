@@ -3,13 +3,13 @@ variable "profile" {
 }
 
 variable "region" {
-  default = "us-west-2"
+  default = "us-east-1"
 }
 
 variable "bucket_name" {
-  default = "terraform-pangeo-access-state-alvis"
+  default = "terraform-hcphub-state-arokem"
 }
 
 variable "dynamo_table_name" {
-  default = "terraform-pangeo-access-locks-alvis"
+  default = "terraform-hcphub-locks-arokem"
 }

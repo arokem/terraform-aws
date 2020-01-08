@@ -3,7 +3,7 @@
 ## Terraform Documentation
 
 Good examples here:
-https://github.com/terraform-providers/terraform-provider-aws/tree/master/examples 
+https://github.com/terraform-providers/terraform-provider-aws/tree/master/examples
 
 And Terraform Docs:
 https://learn.hashicorp.com/terraform/getting-started/variables
@@ -56,23 +56,27 @@ Currently, JupyterHub creation can be done with the eks and eksctl folders, and 
 
 ### Terraform's S3 Backend Setup
 
-- Go to s3backend directory and make the bucket and table
+- Go to s3backend directory
+- Change default values for bucket and table name in `variables.tf`
+- Make the bucket and table
   - `terraform init`
   - `terraform plan`
   - `terraform apply'`
 - Go to eks directory
-  - Add backend code to eks directory
-  - Code should already be present, just needs to be uncommented
-  - It is the `terraform { backend "s3" {...} }` block
+  - Add backend code to eks directory:
+      - Code should already be present (in `eks/eks.ft`), just needs to be uncommented
+      - It is the `terraform { backend "s3" {...} }` block.
+      - Change variable names in this block according to above.
 
 ### Basic Pangeo JupyterHub Install
 
-- Go to eks directory and make the IAM Role / permissions
+- Go to eks directory
+- Change the make the IAM Role / permissions
   - `terraform init`
   - `terraform plan`
   - `terraform apply'`
 - Make new aws keys and a new profile for them, configure in terminal
-  - `aws configure --profile eksbot`
+  - `aws configure --profile eksctlbot`
 - Go to eksctl directory and make the cluster
   - `./create_cluster.sh`
 - Install JupyterHub Helm chart onto cluster
@@ -86,7 +90,7 @@ Currently, JupyterHub creation can be done with the eks and eksctl folders, and 
 - `helm delete jhub --namespace jhub`
 - `kubectl delete namespace jhub`
 - In the eksctl folder
-  - `eksctl delete cluster --profile eksbot --config-file=eksctl-config.yml --wait`
+  - `eksctl delete cluster --profile eksctlbot --config-file=eksctl-config.yml --wait`
 - In the eks folder
   - `terraform destroy`
 - If you created the S3 Backend, in the s3backend folder

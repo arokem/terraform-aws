@@ -6,10 +6,10 @@ terraform {
 
 terraform {
   backend "s3" {
-    bucket         = "terraform-pangeo-access-state-alvis"
+    bucket         = "terraform-hcphub-state-arokem"
     key            = "eks-role/terraform-eks-role.tfstate"
-    region         = "us-west-2"
-    dynamodb_table = "terraform-pangeo-access-locks-alvis"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-hcphub-locks-arokem"
     encrypt        = true
   }
 }

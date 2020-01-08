@@ -4,20 +4,20 @@ terraform {
   required_version = ">= 0.12.0"
 }
 
-# After first terraform apply, store state in S3 by uncommenting, and re-running `terraform init` 
+# After first terraform apply, store state in S3 by uncommenting, and re-running `terraform init`
 # variables not allowed in backend config, so you must manually enter bucket, region, table
 # DON'T  INCLUDE THIS PART IN THIS FOLDER
 # Put the following into the other folders where you want the state stored.
 # Can't store this state, unfortunately
-#terraform {
-#  backend "s3" {
-#    bucket         = "terraform-pangeo-access-state-alvis"
-#    key            = "global/s3/terraform.tfstate"
-#    region         = "us-west-2"
-#    dynamodb_table = "terraform-pangeo-access-locks-alvis"
-#    encrypt        = true
-#  }
-#}
+terraform {
+ backend "s3" {
+   bucket         = "terraform-hcphub-state-arokem"
+   key            = "global/s3/terraform.tfstate"
+   region         = "us-east-1"
+   dynamodb_table = "terraform-hcphub-locks-arokem"
+   encrypt        = true
+ }
+}
 
 provider "aws" {
   version     = "~> 2.40"

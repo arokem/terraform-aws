@@ -3,7 +3,7 @@ kind: ClusterConfig
 
 metadata:
   name: jupyterhub
-  region: us-west-2
+  region: us-east-1
 
 cloudWatch:
   clusterLogging:

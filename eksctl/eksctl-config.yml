@@ -7,7 +7,7 @@ kind: ClusterConfig
 # CHANGE these if you want:
 metadata:
   name: jupyterhub
-  region: us-west-2
+  region: us-east-1
 
 iam:
  withOIDC: true
